@@ -20,13 +20,13 @@ const ProjectCard = ({ des, title, src }) => {
           <h3 className="text-base sm:text-lg lg:text-xl uppercase text-designColor font-semibold">{title}</h3>
           <div className="flex gap-2">
             <a
-              href="#"
+              href="https://github.com/Dias-Madyshev/Snake-game"
               className="text-base sm:text-lg w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black flex 
               justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
               <BsGithub />
             </a>
             <a
-              href="#"
+              href="https://snake-game-nu-mauve.vercel.app/"
               className="text-base sm:text-lg w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black flex 
               justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
               <FaGlobe />
