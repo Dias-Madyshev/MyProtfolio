@@ -17,6 +17,7 @@ const Projects = () => {
           des="A classic Snake Game where you control a snake to eat food and grow longer while avoiding collisions with walls and yourself."
           title="Snake Game"
           src={projectOne}
+          projectLink="https://snake-game-nu-mauve.vercel.app/"
         />
         <ProjectCard
           des="Dogiverse is a web app for dog lovers, featuring breed info, fun facts, and a favorites list."
