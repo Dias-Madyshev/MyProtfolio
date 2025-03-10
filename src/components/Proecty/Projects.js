@@ -1,24 +1,21 @@
-import React from "react";
-import Title from "../layauts/Title";
-import ProjectCard from "./ProjectCard";
-import projectOne from "../../Assets/images/projects/projectOne.jpg";
-import projectTwo from "../../Assets/images/projects/projectTwo.jpg";
-import projectThree from "../../Assets/images/projects/projectThree.jpeg";
+import React from 'react'
+import Title from '../layauts/Title'
+import ProjectCard from './ProjectCard'
+import projectOne from '../../Assets/images/projects/projectOne.jpg'
+import projectTwo from '../../Assets/images/projects/projectTwo.jpg'
+import projectThree from '../../Assets/images/projects/projectThree.jpeg'
 
 const Projects = () => {
   return (
-    <section id="project" className="w-full py-20 border-b border-black">
-      <div className="flex justify-center items-center text-center">
-        <Title
-          title="VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK"
-          des="My Projects"
-        />
+    <section id="project" className="w-full py-10 sm:py-20 border-b border-black px-4 sm:px-6 lg:px-10">
+      <div className="flex justify-center items-center text-center mb-10 sm:mb-16">
+        <Title title="VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK" des="My Projects" />
       </div>
       {/* Грид для адаптива */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
         <ProjectCard
-          des="Dogiverse is a web app for dog lovers, featuring breed info, fun facts, and a favorites list."
-          title="Dogiverse"
+          des="A classic Snake Game where you control a snake to eat food and grow longer while avoiding collisions with walls and yourself."
+          title="Snake Game"
           src={projectOne}
         />
         <ProjectCard
@@ -48,7 +45,7 @@ const Projects = () => {
         />
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects
