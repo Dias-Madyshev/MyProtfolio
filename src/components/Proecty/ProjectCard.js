@@ -3,6 +3,11 @@ import { BsGithub } from 'react-icons/bs'
 import { FaGlobe } from 'react-icons/fa'
 
 const ProjectCard = ({ des, title, src }) => {
+  const handleClick = (e, url) => {
+    e.preventDefault()
+    window.open(url, '_blank')
+  }
+
   return (
     <div
       className="w-full p-4 sm:p-6 lg:p-8 rounded-lg shadow-shadowOne flex flex-col 
@@ -20,13 +25,15 @@ const ProjectCard = ({ des, title, src }) => {
           <h3 className="text-base sm:text-lg lg:text-xl uppercase text-designColor font-semibold">{title}</h3>
           <div className="flex gap-2">
             <a
-              href="https://github.com/Dias-Madyshev/Snake-game"
+              href="#"
+              onClick={e => handleClick(e, 'https://github.com/Dias-Madyshev/Snake-game')}
               className="text-base sm:text-lg w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black flex 
               justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
               <BsGithub />
             </a>
             <a
-              href="https://snake-game-nu-mauve.vercel.app/"
+              href="#"
+              onClick={e => handleClick(e, 'https://snake-game-nu-mauve.vercel.app/')}
               className="text-base sm:text-lg w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-black flex 
               justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer">
               <FaGlobe />
