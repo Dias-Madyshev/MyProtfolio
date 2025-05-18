@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTypewriter } from 'react-simple-typewriter'
 import { FaTelegram, FaLinkedin, FaGithub, FaReact } from 'react-icons/fa'
-import { SiTypescript, SiTailwindcss, SiGit } from 'react-icons/si'
+import { SiTypescript, SiTailwindcss, SiGit, SiRedux } from 'react-icons/si'
 
 export default function LeftBanner() {
   const [text] = useTypewriter({
@@ -23,9 +23,9 @@ export default function LeftBanner() {
           a <span className="text-designColor">{text}</span>
         </h2>
         <p className="text-xs sm:text-sm lg:text-base font-light text-gray-400 leading-6">
-          Aspiring to the position of frontend developer, where I can apply my skills and knowledge to create innovative
-          and user-oriented web applications, participating in exciting projects and interacting in a dynamic team
-          environment.
+          Aspiring to the position of frontend developer, where I can apply my skills and knowledge
+          to create innovative and user-oriented web applications, participating in exciting
+          projects and interacting in a dynamic team environment.
         </p>
       </div>
       <div className="flex flex-col sm:flex-row justify-between gap-6 lg:gap-10">
@@ -35,9 +35,9 @@ export default function LeftBanner() {
             <a href="https://t.me/DiasMadyshev" className="bannerIcon">
               <FaTelegram />
             </a>
-            <span className="bannerIcon">
+            <a href="https://www.linkedin.com/in/dias-madyshev/" className="bannerIcon">
               <FaLinkedin />
-            </span>
+            </a>
             <a href="https://github.com/Dias-Madyshev" className="bannerIcon">
               <FaGithub />
             </a>
@@ -45,9 +45,12 @@ export default function LeftBanner() {
         </div>
         <div>
           <h2 className="text-sm lg:text-base uppercase font-titleFont mb-4">BEST SKILL ON</h2>
-          <div className="flex gap-3 sm:gap-4">
+          <div className="flex gap-3 sm:gap-4 flex-wrap">
             <span className="bannerIcon">
               <FaReact />
+            </span>
+            <span className="bannerIcon">
+              <SiRedux />
             </span>
             <span className="bannerIcon">
               <SiTypescript />
