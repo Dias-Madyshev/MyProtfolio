@@ -19,9 +19,9 @@ const Projects = () => {
       title: 'Pizza Dream',
       des: 'Pizzalicious is a web app for pizza lovers, offering menu browsing, custom orders, and a favorites list.',
       src: projectTwo,
-      projectLink: 'https://pizza-dream-rrbl-git-main-dias-projects-2d0caf21.vercel.app/',
+      projectLink: 'https://pizza-dream-rrbl.vercel.app/',
       githubLink: 'https://github.com/Dias-Madyshev/PizzaDream',
-      webLink: 'https://pizza-dream-rrbl-git-main-dias-projects-2d0caf21.vercel.app/',
+      webLink: 'https://pizza-dream-rrbl.vercel.app/',
     },
     {
       title: 'Dogiverse',
