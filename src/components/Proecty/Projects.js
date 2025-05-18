@@ -27,6 +27,7 @@ const Projects = () => {
       title: 'Dogiverse',
       des: 'Dogiverse is a web app for dog lovers, featuring breed info, fun facts, and a favorites list.',
       src: projectThree,
+      projectLink: 'https://dogiverse-5yvr881iw-dias-projects-2d0caf21.vercel.app/',
       githubLink: 'https://github.com/Dias-Madyshev/Dogiverse',
       webLink: 'https://dogiverse-5yvr881iw-dias-projects-2d0caf21.vercel.app/',
     },
