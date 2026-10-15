@@ -2,7 +2,9 @@ import type { IconType } from 'react-icons'
 import { FaJava } from 'react-icons/fa'
 import {
   SiBootstrap,
+  SiDocker,
   SiExpress,
+  SiFigma,
   SiGit,
   SiJavascript,
   SiMongodb,
@@ -11,16 +13,19 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiPostgresql,
+  SiPostman,
   SiPython,
   SiReact,
   SiReactquery,
   SiRedux,
   SiSass,
   SiSpringboot,
+  SiSwagger,
   SiTailwindcss,
   SiTypescript,
 } from 'react-icons/si'
-import { TbSql } from 'react-icons/tb'
+import { TbSparkles, TbSql } from 'react-icons/tb'
+import { VscVscode } from 'react-icons/vsc'
 import type { SkillCategory } from '../i18n/types'
 
 export interface Skill {
@@ -60,6 +65,12 @@ export const skills: Skill[] = [
   { name: 'MongoDB', category: 'databases', color: '#47a248', icon: SiMongodb },
 
   { name: 'Git', category: 'tools', color: '#f05032', icon: SiGit },
+  { name: 'Docker', category: 'tools', color: '#2496ed', icon: SiDocker },
+  { name: 'Postman', category: 'tools', color: '#ff6c37', icon: SiPostman },
+  { name: 'Swagger', category: 'tools', color: '#85ea2d', icon: SiSwagger },
+  { name: 'Figma', category: 'tools', color: '#f24e1e', icon: SiFigma },
+  { name: 'VS Code', category: 'tools', color: '#007acc', icon: VscVscode },
+  { name: 'AI tools', category: 'tools', color: '#2bff88', icon: TbSparkles },
 ]
 
 export const skillCategories: SkillCategory[] = [
