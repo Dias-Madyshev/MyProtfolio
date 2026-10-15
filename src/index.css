@@ -1,66 +1,249 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300..800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ink: #212428;
+  --bone: #e6eaf0;
+  --mute: #98a0ab;
+  --accent: #2bff88;
+  --line: rgba(230, 234, 240, 0.12);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --header-h: 4.5rem;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-ink font-sans text-bone antialiased;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+  }
+}
+
 @layer components {
-  .bannerIcon {
-    @apply w-16 h-16 bg-black bg-opacity-25 text-gray-200 text-xl inline-flex items-center justify-center rounded-md shadow-shadowOne hover:bg-opacity-40 hover:-translate-y-1 transition-all hover:text-designColor cursor-pointer duration-300;
-    @apply sm:w-12 sm:h-12 sm:text-lg;
+  /* Единый контейнер: широкие поля, узкая колонка. */
+  .container-x {
+    width: 100%;
+    max-width: 70rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 2.5rem);
   }
-  .resumeLi {
-    @apply w-full h-20 bg-black bg-opacity-25 text-xl text-gray-300 flex justify-center cursor-pointer hover:bg-opacity-40 duration-300 items-center border-[1px] rounded-none;
-    @apply sm:h-16 sm:text-base;
+  /* «01 — Обо мне» */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.12em] text-mute;
   }
-  .bgOpacity {
-    @apply bg-black bg-opacity-40;
+  .hairline {
+    border-color: var(--line);
   }
-  .contactInput {
-    @apply w-full h-12 rounded-lg border-b-[1px] border-b-gray-600 bg-[#191b1e] text-lightText px-4 active:outline-none focus-visible:outline-designColor outline-none focus-visible:border-b-transparent duration-300;
-    @apply sm:h-10 sm:text-sm;
+  .link {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease);
   }
-  .contactTextArea {
-    @apply w-full rounded-lg border-b-[1px] border-b-gray-600 bg-[#191b1e] text-lightText px-4 py-2 active:outline-none focus-visible:outline-designColor outline-none focus-visible:border-b-transparent duration-300 resize-none;
-    @apply sm:text-sm;
-  }
-}
-
-.active {
-  color: white;
-}
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
-}
-
-/* Адаптивные стили */
-@media (max-width: 1280px) {
-  .container {
-    @apply px-4;
+  .link:hover,
+  .link:focus-visible {
+    background-size: 100% 1px;
   }
 }
 
-@media (max-width: 1024px) {
+/* Мягкое появление при прокрутке */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(6px);
+  transition:
+    opacity 1s var(--ease),
+    transform 1s var(--ease),
+    filter 1s var(--ease);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal-scale {
+  transform: translateY(24px) scale(0.88);
+}
+.reveal.is-in,
+.is-in .reveal {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Шапка плавно опускается при загрузке */
+.load-down {
+  animation: load-down 0.9s var(--ease) both;
+}
+@keyframes load-down {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Индикатор прокрутки сверху */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 60;
+  height: 2px;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  pointer-events: none;
+}
+
+/* Смена языка */
+.lang-swap {
+  animation: lang-swap 0.35s ease;
+}
+@keyframes lang-swap {
+  from {
+    opacity: 0.35;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Аватар: тёмный диск, тонкое кольцо, голова чуть выходит за верхний край */
+.avatar__disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: #1a1d21;
+}
+.avatar__glow {
+  position: absolute;
+  inset: -0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--line);
+  animation: ring-breathe 8s ease-in-out infinite;
+}
+@keyframes ring-breathe {
+  0%,
+  100% {
+    border-color: var(--line);
+    box-shadow: 0 0 0 rgba(43, 255, 136, 0);
+  }
+  50% {
+    border-color: rgba(43, 255, 136, 0.35);
+    box-shadow: 0 0 28px rgba(43, 255, 136, 0.08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .avatar__glow {
+    animation: none;
+  }
+}
+.avatar__clip {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(-32% 0 0 0 round 0 0 9999px 9999px);
+}
+.avatar__img {
+  position: absolute;
+  left: 0;
+  top: -15%;
+  width: 100%;
+  height: auto;
+}
+
+/* Навыки: монохром, цвет только при наведении */
+.skill {
+  color: var(--mute);
+  border-color: var(--line);
+  background: rgba(230, 234, 240, 0.02);
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.4s var(--ease);
+}
+.skill svg {
+  transition: color 0.3s ease;
+}
+.skill:hover {
+  color: var(--bone);
+  border-color: rgba(43, 255, 136, 0.45);
+  transform: translateY(-2px);
+}
+.skill:hover svg {
+  color: var(--brand, var(--bone));
+}
+
+/* Форма */
+.field {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  padding: 0.6rem 0;
+  color: var(--bone);
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+.field:hover {
+  border-color: rgba(230, 234, 240, 0.35);
+}
+.field:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
   html {
-    font-size: 95%;
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+  .load-down {
+    animation: none;
+  }
+  .lang-swap,
+  .skill {
+    animation: none;
+    transition: none;
   }
 }
 
-@media (max-width: 768px) {
-  html {
-    font-size: 90%;
-  }
-
-  .container {
-    @apply px-3;
+/* Печатающийся «Fullstack Developer» с мигающим курсором */
+.caret {
+  display: inline-block;
+  width: 0.6ch;
+  height: 1.05em;
+  margin-left: 3px;
+  vertical-align: -0.15em;
+  background: var(--accent);
+  animation: blink 1.05s steps(1) infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }
-
-@media (max-width: 640px) {
-  html {
-    font-size: 85%;
-  }
-
-  .container {
-    @apply px-2;
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
   }
 }
