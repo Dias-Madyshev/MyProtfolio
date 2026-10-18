@@ -20,7 +20,7 @@ export const en: Dictionary = {
   hero: {
     name: 'Dias Madyshev',
     role: 'Fullstack Developer',
-    roles: ['Fullstack Developer', 'Professional Coder'],
+    roles: ['Fullstack Developer'],
     about:
       `I build web applications from scratch: I design the architecture, implement interfaces and business logic, and integrate frontend with backend. I work with React, TypeScript, Next.js, Node.js, NestJS, Java and Spring Boot. I use PostgreSQL and MongoDB, and write and optimize SQL queries. I'm interested in application architecture, microfrontends, design systems, performance and integrating AI into applications. I use AI tools to speed up development.`,
     ctaContact: 'Contact me',

@@ -20,7 +20,7 @@ export const ru: Dictionary = {
   hero: {
     name: 'Диас Мадишев',
     role: 'Fullstack Developer',
-    roles: ['Fullstack Developer', 'Профессиональный кодер'],
+    roles: ['Fullstack Developer'],
     about:
       'Разрабатываю веб-приложения с нуля: проектирую архитектуру, реализую интерфейсы и бизнес-логику, интегрирую frontend и backend. Работаю с React, TypeScript, Next.js, Node.js, NestJS, Java и Spring Boot. Использую PostgreSQL и MongoDB, пишу и оптимизирую SQL-запросы. Интересуюсь архитектурой приложений, микрофронтендами, дизайн-системами, производительностью и интеграцией AI в приложения. Использую AI-инструменты для ускорения разработки.',
     ctaContact: 'Написать мне',
